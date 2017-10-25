@@ -1,0 +1,90 @@
+﻿@model Online_Exam_Project_Main.Models.Questions_tbl
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Questions_tbl</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.qus_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.qus_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.qus_title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.qus_title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ans1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ans1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ans2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ans2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ans3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ans3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ans4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ans4)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.correct_ans)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.correct_ans)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Admin_tbl.admin_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Admin_tbl.admin_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Exam_tbl.exam_title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Exam_tbl.exam_title)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.all_qus_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

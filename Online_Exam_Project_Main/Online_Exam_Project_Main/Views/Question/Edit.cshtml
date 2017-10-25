@@ -1,0 +1,106 @@
+﻿@model Online_Exam_Project_Main.Models.Questions_tbl
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Questions_tbl</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.all_qus_id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.qus_id, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.qus_id)
+                @Html.ValidationMessageFor(model => model.qus_id)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.admin_id, "admin_id", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("admin_id", String.Empty)
+                @Html.ValidationMessageFor(model => model.admin_id)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.exam_id, "exam_id", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("exam_id", String.Empty)
+                @Html.ValidationMessageFor(model => model.exam_id)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.qus_title, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.qus_title)
+                @Html.ValidationMessageFor(model => model.qus_title)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ans1, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ans1)
+                @Html.ValidationMessageFor(model => model.ans1)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ans2, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ans2)
+                @Html.ValidationMessageFor(model => model.ans2)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ans3, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ans3)
+                @Html.ValidationMessageFor(model => model.ans3)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ans4, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ans4)
+                @Html.ValidationMessageFor(model => model.ans4)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.correct_ans, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.correct_ans)
+                @Html.ValidationMessageFor(model => model.correct_ans)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

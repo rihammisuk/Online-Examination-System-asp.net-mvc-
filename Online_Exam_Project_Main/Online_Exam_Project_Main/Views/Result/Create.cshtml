@@ -1,0 +1,62 @@
+﻿@model Online_Exam_Project_Main.Models.Result_tbl
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Result_tbl</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        <div class="form-group">
+            <div class="col-md-10">
+                <input type="hidden" name="exam_id" value=@ViewBag.exam_id>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                <input type="hidden" name="candidate_id" value=@ViewBag.candidate_id>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                <input type="hidden" name="total" value=@Session["correctAns"]>
+
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                <input type="hidden" name="grade" value=@ViewBag.grade>
+
+            </div>
+        </div>
+
+        <div class="form-group">
+
+            <div class="col-md-10">
+                <input type="hidden" name="quality" value=@ViewBag.quality>
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="See Result, Click Here" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

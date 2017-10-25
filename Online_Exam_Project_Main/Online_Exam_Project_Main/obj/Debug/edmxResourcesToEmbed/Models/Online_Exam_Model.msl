@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Exam_QuizModelStoreContainer" CdmEntityContainer="Exam_QuizEntities">
+    <EntitySetMapping Name="Admin_tbl">
+      <EntityTypeMapping TypeName="Exam_QuizModel.Admin_tbl">
+        <MappingFragment StoreEntitySet="Admin_tbl">
+          <ScalarProperty Name="admin_id" ColumnName="admin_id" />
+          <ScalarProperty Name="admin_name" ColumnName="admin_name" />
+          <ScalarProperty Name="admin_password" ColumnName="admin_password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Candidate_tbl">
+      <EntityTypeMapping TypeName="Exam_QuizModel.Candidate_tbl">
+        <MappingFragment StoreEntitySet="Candidate_tbl">
+          <ScalarProperty Name="candidate_id" ColumnName="candidate_id" />
+          <ScalarProperty Name="candidate_name" ColumnName="candidate_name" />
+          <ScalarProperty Name="candidate_password" ColumnName="candidate_password" />
+          <ScalarProperty Name="candidate_email" ColumnName="candidate_email" />
+          <ScalarProperty Name="candidate_contact" ColumnName="candidate_contact" />
+          <ScalarProperty Name="candidate_institution" ColumnName="candidate_institution" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Exam_tbl">
+      <EntityTypeMapping TypeName="Exam_QuizModel.Exam_tbl">
+        <MappingFragment StoreEntitySet="Exam_tbl">
+          <ScalarProperty Name="exam_id" ColumnName="exam_id" />
+          <ScalarProperty Name="subject_id" ColumnName="subject_id" />
+          <ScalarProperty Name="exam_title" ColumnName="exam_title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Questions_tbl">
+      <EntityTypeMapping TypeName="Exam_QuizModel.Questions_tbl">
+        <MappingFragment StoreEntitySet="Questions_tbl">
+          <ScalarProperty Name="all_qus_id" ColumnName="all_qus_id" />
+          <ScalarProperty Name="qus_id" ColumnName="qus_id" />
+          <ScalarProperty Name="admin_id" ColumnName="admin_id" />
+          <ScalarProperty Name="exam_id" ColumnName="exam_id" />
+          <ScalarProperty Name="qus_title" ColumnName="qus_title" />
+          <ScalarProperty Name="ans1" ColumnName="ans1" />
+          <ScalarProperty Name="ans2" ColumnName="ans2" />
+          <ScalarProperty Name="ans3" ColumnName="ans3" />
+          <ScalarProperty Name="ans4" ColumnName="ans4" />
+          <ScalarProperty Name="correct_ans" ColumnName="correct_ans" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Result_tbl">
+      <EntityTypeMapping TypeName="Exam_QuizModel.Result_tbl">
+        <MappingFragment StoreEntitySet="Result_tbl">
+          <ScalarProperty Name="result_id" ColumnName="result_id" />
+          <ScalarProperty Name="exam_id" ColumnName="exam_id" />
+          <ScalarProperty Name="candidate_id" ColumnName="candidate_id" />
+          <ScalarProperty Name="total" ColumnName="total" />
+          <ScalarProperty Name="grade" ColumnName="grade" />
+          <ScalarProperty Name="quality" ColumnName="quality" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Subject_tbl">
+      <EntityTypeMapping TypeName="Exam_QuizModel.Subject_tbl">
+        <MappingFragment StoreEntitySet="Subject_tbl">
+          <ScalarProperty Name="subject_id" ColumnName="subject_id" />
+          <ScalarProperty Name="subject_title" ColumnName="subject_title" />
+          <ScalarProperty Name="subject_code" ColumnName="subject_code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

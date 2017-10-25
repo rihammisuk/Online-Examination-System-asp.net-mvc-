@@ -1,0 +1,79 @@
+﻿
+@using Online_Exam_Project_Main.Models
+@model Online_Exam_Project_Main.Models.Questions_tbl
+
+@*@using (Html.BeginForm())*@
+@using (Html.BeginForm("NextQuestion", "ShowQuestion", FormMethod.Post))
+{
+    <div>
+        @Html.ValidationMessageFor(m => m.selectedvalue, "", new { @class = "text-danger" })
+        <h4> </h4>
+        <hr />
+        <dl class="dl-horizontal">
+
+
+            <dt>
+
+                @ViewBag.questionNo
+                @Html.HiddenFor(a => a.qus_id)
+                @Html.DisplayFor(a => a.qus_id)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.qus_title)
+            </dd>
+
+            <dt>
+                @Html.RadioButtonFor(model => model.selectedvalue, "1")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ans1)
+            </dd>
+
+            <dt>
+                @Html.RadioButtonFor(model => model.selectedvalue, "2")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ans2)
+            </dd>
+
+            <dt>
+                @Html.RadioButtonFor(model => model.selectedvalue, "3")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ans3)
+            </dd>
+
+            <dt>
+                @Html.RadioButtonFor(model => model.selectedvalue, "4")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ans4)
+            </dd>
+
+            @Html.HiddenFor(m => m.ans1)
+            @Html.HiddenFor(m => m.ans2)
+            @Html.HiddenFor(m => m.ans3)
+            @Html.HiddenFor(m => m.ans4)
+            @Html.HiddenFor(m => m.qus_id)
+            @Html.HiddenFor(m => m.qus_title)
+            @Html.HiddenFor(m => m.exam_id)
+            @Html.HiddenFor(m => m.correct_ans)
+
+
+        </dl>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="NEXT" class="btn btn-danger" />
+        </div>
+    </div>
+
+
+}
+

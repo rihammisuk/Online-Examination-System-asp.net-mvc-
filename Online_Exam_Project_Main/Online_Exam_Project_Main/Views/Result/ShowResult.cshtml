@@ -1,0 +1,31 @@
+﻿@model Online_Exam_Project_Main.Models.Result_tbl
+
+@{
+    ViewBag.Title = "ShowResult";
+}
+
+<h2>Your Result</h2>
+
+<div>
+    
+   
+   
+    <h2>  <label>Name : @Session["candidate_name"]</label></h2>
+    
+    <h2>  <label>Score : @Session["correctAns"]</label></h2>
+
+    <h2>  <label>Grade : @Session["grade"]</label></h2>
+   
+    <h2>  <label>Quality : @Session["quality"]</label></h2>
+</div>
+<br>
+<div>
+    <h5>Are you want to give exam again?</h5>
+
+    <div>
+        <h1>
+        @Html.ActionLink("Give Exam", "Index","SelectExam")
+        </h1>
+    </div>
+  
+</div>

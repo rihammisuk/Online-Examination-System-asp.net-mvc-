@@ -1,0 +1,58 @@
+﻿@model Online_Exam_Project_Main.Models.Result_tbl
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Result_tbl</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.total)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.total)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.grade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.grade)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.quality)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.quality)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Candidate_tbl.candidate_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Candidate_tbl.candidate_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Exam_tbl.exam_title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Exam_tbl.exam_title)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.result_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

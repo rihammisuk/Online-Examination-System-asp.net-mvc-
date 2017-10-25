@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Online_Exam_Project_Main.Models.Candidate_tbl>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.candidate_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.candidate_password)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.candidate_email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.candidate_contact)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.candidate_institution)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.candidate_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.candidate_password)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.candidate_email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.candidate_contact)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.candidate_institution)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.candidate_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.candidate_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.candidate_id })
+        </td>
+    </tr>
+}
+
+</table>

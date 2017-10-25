@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Online_Exam_Project_Main.Models.Subject_tbl>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.subject_title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.subject_code)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.subject_title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.subject_code)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.subject_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.subject_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.subject_id })
+        </td>
+    </tr>
+}
+
+</table>

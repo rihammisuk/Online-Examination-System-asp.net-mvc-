@@ -1,0 +1,58 @@
+﻿@model Online_Exam_Project_Main.Models.Candidate_tbl
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Candidate_tbl</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.candidate_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.candidate_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.candidate_password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.candidate_password)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.candidate_email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.candidate_email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.candidate_contact)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.candidate_contact)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.candidate_institution)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.candidate_institution)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.candidate_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

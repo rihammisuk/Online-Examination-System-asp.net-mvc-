@@ -1,0 +1,74 @@
+﻿@model Online_Exam_Project_Main.Models.Candidate_tbl
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Candidate_tbl</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.candidate_id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.candidate_name, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.candidate_name)
+                @Html.ValidationMessageFor(model => model.candidate_name)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.candidate_password, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.candidate_password)
+                @Html.ValidationMessageFor(model => model.candidate_password)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.candidate_email, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.candidate_email)
+                @Html.ValidationMessageFor(model => model.candidate_email)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.candidate_contact, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.candidate_contact)
+                @Html.ValidationMessageFor(model => model.candidate_contact)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.candidate_institution, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.candidate_institution)
+                @Html.ValidationMessageFor(model => model.candidate_institution)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

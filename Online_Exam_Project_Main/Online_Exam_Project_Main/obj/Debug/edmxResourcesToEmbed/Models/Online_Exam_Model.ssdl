@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Exam_QuizModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Admin_tbl">
+    <Key>
+      <PropertyRef Name="admin_id" />
+    </Key>
+    <Property Name="admin_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="admin_name" Type="varchar" MaxLength="50" />
+    <Property Name="admin_password" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Candidate_tbl">
+    <Key>
+      <PropertyRef Name="candidate_id" />
+    </Key>
+    <Property Name="candidate_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="candidate_name" Type="varchar" MaxLength="50" />
+    <Property Name="candidate_password" Type="varchar" MaxLength="50" />
+    <Property Name="candidate_email" Type="varchar" MaxLength="50" />
+    <Property Name="candidate_contact" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="candidate_institution" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Exam_tbl">
+    <Key>
+      <PropertyRef Name="exam_id" />
+    </Key>
+    <Property Name="exam_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="subject_id" Type="int" />
+    <Property Name="exam_title" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Questions_tbl">
+    <Key>
+      <PropertyRef Name="all_qus_id" />
+    </Key>
+    <Property Name="all_qus_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="qus_id" Type="int" />
+    <Property Name="admin_id" Type="int" />
+    <Property Name="exam_id" Type="int" />
+    <Property Name="qus_title" Type="varchar" MaxLength="100" />
+    <Property Name="ans1" Type="varchar" MaxLength="50" />
+    <Property Name="ans2" Type="varchar" MaxLength="50" />
+    <Property Name="ans3" Type="varchar" MaxLength="50" />
+    <Property Name="ans4" Type="varchar" MaxLength="50" />
+    <Property Name="correct_ans" Type="int" />
+  </EntityType>
+  <EntityType Name="Result_tbl">
+    <Key>
+      <PropertyRef Name="result_id" />
+    </Key>
+    <Property Name="result_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="exam_id" Type="int" />
+    <Property Name="candidate_id" Type="int" />
+    <Property Name="total" Type="int" />
+    <Property Name="grade" Type="varchar" MaxLength="10" />
+    <Property Name="quality" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Subject_tbl">
+    <Key>
+      <PropertyRef Name="subject_id" />
+    </Key>
+    <Property Name="subject_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="subject_title" Type="varchar" MaxLength="50" />
+    <Property Name="subject_code" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <Association Name="FK_Exam_tbl_Subject_tbl">
+    <End Role="Subject_tbl" Type="Self.Subject_tbl" Multiplicity="0..1" />
+    <End Role="Exam_tbl" Type="Self.Exam_tbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subject_tbl">
+        <PropertyRef Name="subject_id" />
+      </Principal>
+      <Dependent Role="Exam_tbl">
+        <PropertyRef Name="subject_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Questions_tbl_Admin_tbl">
+    <End Role="Admin_tbl" Type="Self.Admin_tbl" Multiplicity="0..1" />
+    <End Role="Questions_tbl" Type="Self.Questions_tbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Admin_tbl">
+        <PropertyRef Name="admin_id" />
+      </Principal>
+      <Dependent Role="Questions_tbl">
+        <PropertyRef Name="admin_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Questions_tbl_Exam_tbl">
+    <End Role="Exam_tbl" Type="Self.Exam_tbl" Multiplicity="0..1" />
+    <End Role="Questions_tbl" Type="Self.Questions_tbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Exam_tbl">
+        <PropertyRef Name="exam_id" />
+      </Principal>
+      <Dependent Role="Questions_tbl">
+        <PropertyRef Name="exam_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Result_tbl_Candidate_tbl">
+    <End Role="Candidate_tbl" Type="Self.Candidate_tbl" Multiplicity="0..1" />
+    <End Role="Result_tbl" Type="Self.Result_tbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Candidate_tbl">
+        <PropertyRef Name="candidate_id" />
+      </Principal>
+      <Dependent Role="Result_tbl">
+        <PropertyRef Name="candidate_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Result_tbl_Exam_tbl1">
+    <End Role="Exam_tbl" Type="Self.Exam_tbl" Multiplicity="0..1" />
+    <End Role="Result_tbl" Type="Self.Result_tbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Exam_tbl">
+        <PropertyRef Name="exam_id" />
+      </Principal>
+      <Dependent Role="Result_tbl">
+        <PropertyRef Name="exam_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Exam_QuizModelStoreContainer">
+    <EntitySet Name="Admin_tbl" EntityType="Self.Admin_tbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Candidate_tbl" EntityType="Self.Candidate_tbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Exam_tbl" EntityType="Self.Exam_tbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Questions_tbl" EntityType="Self.Questions_tbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Result_tbl" EntityType="Self.Result_tbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Subject_tbl" EntityType="Self.Subject_tbl" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Exam_tbl_Subject_tbl" Association="Self.FK_Exam_tbl_Subject_tbl">
+      <End Role="Subject_tbl" EntitySet="Subject_tbl" />
+      <End Role="Exam_tbl" EntitySet="Exam_tbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Questions_tbl_Admin_tbl" Association="Self.FK_Questions_tbl_Admin_tbl">
+      <End Role="Admin_tbl" EntitySet="Admin_tbl" />
+      <End Role="Questions_tbl" EntitySet="Questions_tbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Questions_tbl_Exam_tbl" Association="Self.FK_Questions_tbl_Exam_tbl">
+      <End Role="Exam_tbl" EntitySet="Exam_tbl" />
+      <End Role="Questions_tbl" EntitySet="Questions_tbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Result_tbl_Candidate_tbl" Association="Self.FK_Result_tbl_Candidate_tbl">
+      <End Role="Candidate_tbl" EntitySet="Candidate_tbl" />
+      <End Role="Result_tbl" EntitySet="Result_tbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Result_tbl_Exam_tbl1" Association="Self.FK_Result_tbl_Exam_tbl1">
+      <End Role="Exam_tbl" EntitySet="Exam_tbl" />
+      <End Role="Result_tbl" EntitySet="Result_tbl" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
